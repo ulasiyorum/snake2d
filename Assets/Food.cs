@@ -34,7 +34,7 @@ public class Food {
         if(snakePosition == foodPosition)
         {
             Object.Destroy(food);
-            Snake.score += Random.Range(0, 8);
+            Snake.score += Random.Range(1, 8);
             if(Snake.score > snake.snakeSize * 4)
             {
                 snake.snakeSize++;

@@ -17,6 +17,9 @@ public class Snake : MonoBehaviour
     {
         score = -1;
         snakeSize = 1;
+        gameObject.AddComponent<BoxCollider2D>();
+        gameObject.AddComponent<Rigidbody2D>();
+        GetComponent<Rigidbody2D>().gravityScale = 0;
         snakeRotationList = new List<Quaternion>();
         bodies = new List<GameObject>();
         snakeVectorList = new List<Vector2Int>();
@@ -114,5 +117,9 @@ public class Snake : MonoBehaviour
         else if(direction == 2) { return 0; }
         else if(direction == 3) { return 180; }
         return 1f;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Instance.instance.GameOver();
     }
 }
